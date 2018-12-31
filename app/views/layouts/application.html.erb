@@ -18,7 +18,6 @@
       <% flash.each do |key,value| %>
       <%= content_tag(:div , value , class:"alert alert-#{key}") %>
       <% end %>
-      <!-- <%= button_tag "Open", :onclick => "openMMWindow()"%>  -->
       <%= yield %>
 
   </div>
