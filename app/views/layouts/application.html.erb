@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title><%= full_title(yield(:title)) %></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class= "container">
+      <% flash.each do |key,value| %>
+      <%= content_tag(:div , value , class:"alert alert-#{key}") %>
+      <% end %>
+      <!-- <%= button_tag "Open", :onclick => "openMMWindow()"%>  -->
+      <%= yield %>
+
+  </div>
+  </body>
+<script type='text/javascript' data-cfasync='false'>
+  window.purechatApi = { l: [], t: [], on: function () { this.l.push(arguments); } };
+  (function () {
+    var done = false;
+    var script = document.createElement('script');
+    script.async = true;
+    script.type = 'text/javascript';
+    script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript';
+    document.getElementsByTagName('HEAD').item(0).appendChild(script);
+    script.onreadystatechange = script.onload = function (e) {
+      if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) {
+         var w = new PCWidget({c: 'a9150e64-ce88-452f-8b14-efe24068b148', f: true }); done = true;
+      }
+    };
+  })();
+</script>
+</html>
