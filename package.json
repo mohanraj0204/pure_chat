@@ -1,5 +1,7 @@
 {
-  "name": "purechat_integration",
+  "name": "New_App",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "mattermost": "^3.4.0"
+  }
 }
